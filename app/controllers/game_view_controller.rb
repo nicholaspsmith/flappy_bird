@@ -1,7 +1,7 @@
 class GameViewController < UIViewController
   def loadView
     view = SKView.new
-    view.showFPS = true
+    view.showsFPS = true
     view.showsNodeCount = true
     view.showsDrawCount = true
 

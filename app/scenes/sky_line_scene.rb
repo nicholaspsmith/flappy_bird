@@ -1,4 +1,4 @@
-class SkyLineScene < SkyLineScene
+class SkyLineScene < SKScene
   WORLD = 0x1 << 1
 
   def didMoveToView(view)
