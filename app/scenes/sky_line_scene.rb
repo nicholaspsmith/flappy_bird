@@ -33,7 +33,7 @@ class SkyLineScene < SKScene
       skyline.position = CGPointMake(x_position, mid_y)
       skyline.name = "skyline"
       skyline.zPosition = -20
-      skyline.scale = 1.12
+      skyline.scale = 1.4
       # skyline.runAction scroll_action(mic_x, 0.1)
 
       addChild skyline
@@ -43,7 +43,7 @@ class SkyLineScene < SKScene
   def move_background
     self.enumerateChildNodesWithName "skyline", usingBlock: -> (node, stop) {
       velocity = CGPointMake(-20, 0)
-      movement_amount = CGPointMake(velocity.x * @delta, velocity.y * delta)
+      movement_amount = CGPointMake(velocity.x * @delta, velocity.y * @delta)
       node.position = CGPointMake(node.position.x + movement_amount.x, node.position.y + movement_amount.y)
 
       if node.position.x <= -node.size.width / 2
@@ -95,7 +95,6 @@ class SkyLineScene < SKScene
     @delta = @last_update_time ? current_time - @last_update_time : 0
     @last_update_time = current_time
 
-    check_controller
 
     move_background
     rotate_bird
@@ -130,18 +129,6 @@ class SkyLineScene < SKScene
     node = childNodeWithName("bird")
     dy = node.physicsBody.velocity.dy
     node.zRotation = max_rotate(dy * (dy < 0 ? 0.003 : 0.001))
-  end
-
-  def check_controller
-    controllers = CGController.controllers
-
-    if controllers.count > 1
-      controller = controller.first.extendedGamepad
-
-      if controller.buttonA.isPressed?
-        bird_jump
-      end
-    end
   end
 
   def max_rotate(value)
