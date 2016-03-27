@@ -17,11 +17,11 @@ class SkyLineScene < SKScene
   end
 
   def add_pause_label
-    label = SKLabelNode.labelNodeWithFontNamed("Chalkduster")
-    label.text = "Pause"
-    label.position = CGPointMake(80, 500)
-    label.name = "pause"
-    addChild label
+    pause = SKSpriteNode.spriteNodeWithImageNamed("pause.png")
+    pause.position = CGPointMake(40, 700)
+    pause.name = "pause"
+
+    addChild pause
   end
 
   def add_skyline
@@ -33,7 +33,7 @@ class SkyLineScene < SKScene
       skyline.position = CGPointMake(x_position, mid_y)
       skyline.name = "skyline"
       skyline.zPosition = -20
-      skyline.scale = 1.4
+      skyline.scale = 1.5
       # skyline.runAction scroll_action(mic_x, 0.1)
 
       addChild skyline
@@ -104,7 +104,6 @@ class SkyLineScene < SKScene
     touch = touches.anyObject
     location = touch.locationInNode(self)
     node = nodeAtPoint(location)
-    puts node.name
 
     if node.name == "pause"
       if self.isPaused

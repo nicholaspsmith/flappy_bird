@@ -13,7 +13,7 @@ class PipePair < SKNode
 
   def top
     pipe_up = Pipe.alloc.init("pipe_down.png")
-    pipe_up.position = CGPointMake(0, random_y + 450)
+    pipe_up.position = CGPointMake(0, random_y + 650)
     pipe_up
   end
 
