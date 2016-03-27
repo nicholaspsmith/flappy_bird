@@ -21,7 +21,7 @@ class Bird < SKSpriteNode
   end
 
   def physics_body
-    body = SKPhysicsBodyl.bodyWithRectangleOfSize(size)
+    body = SKPhysicsBody.bodyWithRectangleOfSize(size)
     body.friction = 0.0
     body.categoryBitMask = BIRD
     body.contactTextBitMask = SkyLineScene::WORLD
