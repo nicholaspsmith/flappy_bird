@@ -53,7 +53,7 @@ class SkyLineScene < SKScene
   end
 
   def add_ground
-    texture = SKTexture.textureWIthImageNamed("ground.png")
+    texture = SKTexture.textureWithImageNamed("ground.png")
     x = CGRectGetMidX(self.frame) + 7
 
     2.times do |i|
